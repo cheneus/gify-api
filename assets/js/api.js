@@ -20,10 +20,12 @@ $(document).ready(function() {
       .done(function(response) {
         console.log(response);
         // response
-        $('#gifOutput').append("<div class='gif-block' id='gif"+topic +"'></div>")
+        $('#gifOutput').append("<div class='card gif-block my-2' id='gif"+topic +"'></div>")
+        $("#gif"+topic).append("<div class='card-header'>Topic : "+ topic +"</div>");
+         $("#gif"+topic).append("<div class='card-block  p-2'></div>");
         var result = response.data;
         for (i = 0; i < 10; i++) {
-          var img = $("<img class='figure-img'>");
+          var img = $("<img class='figure-img mx-1'>");
           var imageUrl = result[i].images.fixed_height_small.url;
           var imageStill = result[i].images.fixed_height_small_still.url;
           var figure = $("<figure class='figure "+i+"'></figure>")
@@ -34,7 +36,7 @@ $(document).ready(function() {
           img.attr("data-still", imageStill);
           img.attr("data-animate", imageUrl)
           //
-          $("#gif"+topic).append(figure);
+          $("#gif"+topic+" .card-block").append(figure);
           figure.append(img);
           figure.append("<figcaption class='figure-caption'>Rating: "+result[i].rating+"</figcaption>");
         }
