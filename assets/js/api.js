@@ -1,7 +1,7 @@
 $(document).ready(function() {
   $("#addTopicBtn").on("click", function() {
     topic = $("#topicInput").val();
-    $('#buttonOutput').append('<button id="topicBtn" class="btn btn-block"data-topic="' + topic + '"">' + topic + '</button>')
+    $('#buttonOutput').append('<button id="topicBtn" class="btn btn-block-custom" data-topic="' + topic + '"">' + topic + '</button>')
   });
   $(document).on("click", "button[id='topicBtn']", function() {
     var topic = $(this).data("topic");
@@ -28,7 +28,7 @@ $(document).ready(function() {
           var imageStill = result[i].images.fixed_height_small_still.url;
           var figure = $("<figure class='figure "+i+"'></figure>")
           //
-          img.attr("src", imageUrl);
+          img.attr("src", imageStill);
           img.attr("alt", "gif" + topic);
           img.addClass("gifToggle");
           img.attr("data-still", imageStill);
